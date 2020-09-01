@@ -1,0 +1,25 @@
+From 3ceba71a22af844742236b3c8b6fe979aee6bafd Mon Sep 17 00:00:00 2001
+From: Juan Oxoby <juan@vicarious.com>
+Date: Tue, 1 Sep 2020 16:12:12 -0700
+Subject: [PATCH] Use modern cmake target for ign-math
+
+---
+ src/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index f68bf3d..3e165f4 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -179,7 +179,7 @@ target_include_directories(${PROJECT_LIBRARY_TARGET_NAME}
+ target_link_libraries(${PROJECT_LIBRARY_TARGET_NAME}
+   PUBLIC
+     protobuf::libprotobuf
+-    ${ignition-math${IGN_MATH_VER}_LIBRARIES}
++    ignition-math${IGN_MATH_VER}::ignition-math${IGN_MATH_VER}
+   PRIVATE
+     TINYXML2::TINYXML2
+ )
+-- 
+2.17.1
+

@@ -3,32 +3,27 @@ import os
 from conans import CMake, ConanFile, tools
 
 
-class IgnMathConan(ConanFile):
-    name = "ignition-math"
-    version = "6.4.0"
+class IgnTransportConan(ConanFile):
+    name = "ignition-transport"
+    version = "8.1.0"
     license = "Apache-2.0"
     author = "Juan Oxoby me@jmoxo.by"
-    url = "https://github.com/ignitionrobotics/ign-math"
-    description = " Math classes and functions for robot applications"
-    topics = ("ignition", "math", "robotics", "gazebo")
+    url = "https://github.com/ignitionrobotics/ign-transport"
+    description = "A component of Ignition Robotics, provides fast and efficient \
+                   asyncronous message passing, services, and data logging."
+    topics = ("ignition", "pubsub", "gazebo", "robotics", "zmq")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": True}
-    generators = "cmake", "cmake_find_package"
-    # build_requires = "ignition-cmake/2.4.0"
-    major_version = version.split('.')[0]
+    generators = "cmake", "cmake_find_package_multi"
 
     @property
     def _source_subfolder(self):
         return "source_subfolder"
 
-    @property
-    def _major(self):
-        return self.major_version
-
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
-        os.rename(f"ign-math-ignition-math6_6.4.0", self._source_subfolder)
+        os.rename("ign-transport-ignition-transport8_8.1.0", self._source_subfolder)
 
     def requirements(self):
         for req in self.conan_data["requirements"]:
@@ -50,8 +45,8 @@ class IgnMathConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.includedirs = [f"include/ignition/math{self._major}"]
-        self.cpp_info.name = f"ignition-math{self._major}"
+        self.cpp_info.name = "ignition-transport8"
+        self.cpp_info.includedirs = ['include/ignition/transport8']
 
     def _install_ign_cmake(self):
         # Get and build ign-cmake. This is just a set of cmake macros used by all the ignition
