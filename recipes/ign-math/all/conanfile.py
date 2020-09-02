@@ -5,7 +5,7 @@ from conans import CMake, ConanFile, tools
 
 class IgnMathConan(ConanFile):
     name = "ignition-math"
-    version = "6.4.0"
+    version = "6.4.0" # TODO: Don't hardcode the version here! Use a config.yml
     license = "Apache-2.0"
     author = "Juan Oxoby me@jmoxo.by"
     url = "https://github.com/ignitionrobotics/ign-math"
