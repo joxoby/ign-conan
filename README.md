@@ -3,7 +3,7 @@ Conan recipes for Ignition Robotics libraries
 
 ## TODO
 
-- Hook up a Travis job to build this packages.
+- Hook up a Travis job to build the packages.
 
 - `grep -R "TODO:" recipes/`
 
