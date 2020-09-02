@@ -11,3 +11,5 @@ patches:
      # https://github.com/ignitionrobotics/ign-msgs/pull/82
     - patch_file: "patches/001-modern-target.patch"
       base_path: "source_subfolder"
+    - patch_file: "patches/0001-Don-t-use-IgnProtobuf.patch"
+      base_path: "source_subfolder"

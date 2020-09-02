@@ -17,9 +17,9 @@ class IgnMsgsConan(ConanFile):
     exports_sources = ['patches/*']
 
     version = os.getenv("CONAN_PACKAGE_VERSION", None)
-    major_version = version.split('.')[0]
     if version is None:
         raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
+    major_version = version.split('.')[0]
 
     @property
     def _major(self):
@@ -58,7 +58,6 @@ class IgnMsgsConan(ConanFile):
     def package_info(self):
         self.cpp_info.name = f"ignition-msgs{self._major}"
         self.cpp_info.includedirs = [f"include/ignition/msgs{self._major}"]
-
 
     def _install_ign_cmake(self):
         # Get and build ign-cmake. This is just a set of cmake macros used by all the ignition
