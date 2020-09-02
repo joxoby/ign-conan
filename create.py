@@ -23,6 +23,6 @@ for package_path in packages_path:
         os.environ["CONAN_PACKAGE_VERSION"] = version
         folder = versions[version]["folder"]
         path_to_folder = str(package_path / folder)
-        ret = subprocess.call(["conan", "create", path_to_folder, "demo/testing"])
+        ret = subprocess.call(["conan", "create", path_to_folder, "demo/testing", "--build=missing"])
         if ret is not 0:
             exit(1)
