@@ -2,11 +2,19 @@
 Conan recipes for Ignition Robotics libraries
 
 ## Build all
-Run `python create.py`
+
+Set up virtual environment:
+```
+pip install pipenv
+pipenv install --dev
+```
+
+Build:
+```
+pipenv run python create.py
+```
 
 ## TODO
-
-- Hook up a Travis job to build the packages.
 
 - `grep -R "TODO:" recipes/`
 
