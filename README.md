@@ -1,6 +1,8 @@
 # ign-conan
 Conan recipes for Ignition Robotics libraries
 
+[![Build Status](https://travis-ci.com/joxoby/ign-conan.svg?branch=master)](https://travis-ci.com/joxoby/ign-conan)
+
 ## Build all
 
 Set up virtual environment:
