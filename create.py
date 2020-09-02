@@ -6,14 +6,16 @@ import yaml
 
 root_dir = Path("recipes")
 
-# get all subdirs (non-recursive)
-packages_path = Path.glob(root_dir, "./*/")
+# Get all the packages to build. This list should be
+# in topological order.
+with open("build.txt") as fh:
+    packages = fh.readlines()
+packages = [x.strip() for x in packages]
 
 # loop through all packages
-for package_path in packages_path:
-
+for package in packages:
     # get the package config
-    config_file = package_path / "config.yml"
+    config_file = root_dir / package / "config.yml"
     with open(config_file) as fh:
         config = yaml.load(fh, Loader=yaml.FullLoader)
 
@@ -22,7 +24,7 @@ for package_path in packages_path:
     for version in versions:
         os.environ["CONAN_PACKAGE_VERSION"] = version
         folder = versions[version]["folder"]
-        path_to_folder = str(package_path / folder)
-        ret = subprocess.call(["conan", "create", path_to_folder, "demo/testing", "--build=missing"])
+        path_to_folder = str(root_dir / package / folder)
+        ret = subprocess.call(["conan", "create", path_to_folder, "demo/testing"])
         if ret is not 0:
             exit(1)
