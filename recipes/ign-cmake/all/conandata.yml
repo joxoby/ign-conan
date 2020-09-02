@@ -1,0 +1,4 @@
+sources:
+  "2.4.0":
+    url: "https://github.com/ignitionrobotics/ign-cmake/archive/ignition-cmake2_2.4.0.zip"
+    sha256: "42526ded1cee1bf59c4141674c9e4d0167524155362e288069b78401e374e0df"

@@ -5,7 +5,6 @@ from conans import CMake, ConanFile, tools
 
 class IgnMathConan(ConanFile):
     name = "ignition-math"
-    version = "6.4.0" # TODO: Don't hardcode the version here! Use a config.yml
     license = "Apache-2.0"
     author = "Juan Oxoby me@jmoxo.by"
     url = "https://github.com/ignitionrobotics/ign-math"
@@ -17,7 +16,11 @@ class IgnMathConan(ConanFile):
     generators = "cmake", "cmake_find_package_multi"
     # TODO: find a way of using an ign-make Conan package as a build_requirement
     # build_requires = "ignition-cmake/2.4.0"
+
+    version = os.getenv("CONAN_PACKAGE_VERSION", None)
     major_version = version.split('.')[0]
+    if version is None:
+        raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
 
     @property
     def _source_subfolder(self):

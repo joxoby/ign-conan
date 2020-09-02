@@ -3,18 +3,17 @@ import os
 from conans import CMake, ConanFile, tools
 
 
-class IgnMsgsConan(ConanFile):
-    name = "ignition-msgs"
-    license = "Apache-2.0"
-    author = "Juan Oxoby me@jmoxo.by"
-    url = "https://github.com/ignitionrobotics/ign-msgs"
-    description = "Protobuf messages and functions for robot applications."
-    topics = ("ignition", "robotics", "gazebo", "protobuf", "messages")
+class IgnToolsConan(ConanFile):
+    name = "ignition-tools"
+    license = "<Put the package license here>"
+    author = "Juan Oxoby juan@vicarious.com"
+    url = "<Package recipe repository url here, for issues about the package>"
+    description = "<Description of IgnCmake here>"
+    topics = ("<Put some tag here>", "<here>", "<and here>")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": True}
-    generators = "cmake", "cmake_find_package_multi"
-    exports_sources = ['patches/*']
+    generators = "cmake", "cmake_find_package"
 
     version = os.getenv("CONAN_PACKAGE_VERSION", None)
     major_version = version.split('.')[0]
@@ -22,31 +21,19 @@ class IgnMsgsConan(ConanFile):
         raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
 
     @property
-    def _major(self):
-        return self.major_version
-
-    @property
     def _source_subfolder(self):
         return "source_subfolder"
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
-        os.rename("ign-msgs-ignition-msgs5_5.3.0", self._source_subfolder)
-
-    def requirements(self):
-        for req in self.conan_data["requirements"]:
-            self.requires(req)
+        os.rename("ign-tools-ignition-tools_1.0.0", self._source_subfolder)
 
     def _configure_cmake(self):
         cmake = CMake(self)
-        cmake.definitions["BUILD_TESTING"] = False
         cmake.configure(source_folder=self._source_subfolder)
         return cmake
 
     def build(self):
-        for patch in self.conan_data["patches"].get(self.version, []):
-            tools.patch(**patch)
-
         self._install_ign_cmake()
         cmake = self._configure_cmake()
         cmake.build()
@@ -54,11 +41,6 @@ class IgnMsgsConan(ConanFile):
     def package(self):
         cmake = self._configure_cmake()
         cmake.install()
-
-    def package_info(self):
-        self.cpp_info.name = f"ignition-msgs{self._major}"
-        self.cpp_info.includedirs = [f"include/ignition/msgs{self._major}"]
-
 
     def _install_ign_cmake(self):
         # Get and build ign-cmake. This is just a set of cmake macros used by all the ignition

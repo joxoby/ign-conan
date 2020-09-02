@@ -1,6 +1,9 @@
 # ign-conan
 Conan recipes for Ignition Robotics libraries
 
+## Build all
+Run `python create.py`
+
 ## TODO
 
 - Hook up a Travis job to build the packages.
