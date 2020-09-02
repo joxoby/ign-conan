@@ -14,7 +14,7 @@ for package_path in packages_path:
     # get the package config
     config_file = package_path / "config.yml"
     with open(config_file) as fh:
-        config = yaml.load(fh)
+        config = yaml.load(fh, Loader=yaml.FullLoader)
 
     # loop through all the versions to build
     versions = config["versions"]
