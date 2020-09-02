@@ -18,7 +18,7 @@ pipenv run python create.py
 
 ## TODO
 
-- `grep -R "TODO:" recipes/`
+- `grep -Rn "TODO:" recipes/`
 
 - [ ] ign-cmake
 - [x] ign-math
