@@ -14,7 +14,8 @@ class IgnMathConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": True}
-    generators = "cmake", "cmake_find_package"
+    generators = "cmake", "cmake_find_package_multi"
+    # TODO: find a way of using an ign-make Conan package as a build_requirement
     # build_requires = "ignition-cmake/2.4.0"
     major_version = version.split('.')[0]
 
@@ -28,6 +29,7 @@ class IgnMathConan(ConanFile):
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
+        # TODO: find a more portable way to refer to this folder
         os.rename(f"ign-math-ignition-math6_6.4.0", self._source_subfolder)
 
     def requirements(self):
@@ -50,12 +52,13 @@ class IgnMathConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.includedirs = [f"include/ignition/math{self._major}"]
         self.cpp_info.name = f"ignition-math{self._major}"
+        self.cpp_info.includedirs = [f"include/ignition/math{self._major}"]
 
     def _install_ign_cmake(self):
         # Get and build ign-cmake. This is just a set of cmake macros used by all the ignition
         # packages.
+        # TODO: find a way of using an ign-make Conan package as a build_requirement
         self.run("git clone --depth=1 https://github.com/ignitionrobotics/ign-cmake.git --branch ignition-cmake2_2.4.0")
         cmake = CMake(self)
         cmake.configure(source_folder="ign-cmake", build_folder="build_ign-cmake")

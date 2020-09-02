@@ -4,7 +4,7 @@ sources:
     sha256: "9ed345cae869efd5c50acae5d14217dd6c20566a46402ad946ffb96903151af5"
 requirements:
   - "tinyxml2/8.0.0"
-  # - "protobuf/3.11.4"
+  # - "protobuf/3.11.4" TODO: Make ign-msgs work with Conan protobuf
   - "ignition-math/6.4.0"
 patches:
   "5.3.0":

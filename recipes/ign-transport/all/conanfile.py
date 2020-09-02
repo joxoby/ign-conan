@@ -14,8 +14,13 @@ class IgnTransportConan(ConanFile):
     topics = ("ignition", "pubsub", "gazebo", "robotics", "zmq")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
-    default_options = {"shared": True}
+    default_options = {"shared": True, "zeromq:shared": True}
     generators = "cmake", "cmake_find_package_multi"
+    major_version = version.split('.')[0]
+
+    @property
+    def _major(self):
+        return self.major_version
 
     @property
     def _source_subfolder(self):
