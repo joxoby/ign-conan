@@ -1,0 +1,4 @@
+sources:
+  "1.0.4":
+    url: "https://github.com/ros/urdfdom_headers/archive/1.0.4.zip"
+    sha256: "00c0ef5003e26a01f181c93a24bd49384fefc4118bf0579128f4e0a68f3ec4f1"

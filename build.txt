@@ -1,3 +1,5 @@
+urdfdom_headers
+urdfdom
 ign-math
 ign-tools
 sdformat

@@ -1,0 +1,7 @@
+sources:
+  "1.0.4":
+    url: "https://github.com/ros/urdfdom/archive/1.0.4.zip"
+    sha256: "17dbfb8e2157d4de785ffc5e9820ac96e20cc3bcbc7890f3c9acdcb013318ec0"
+requirements:
+  - "tinyxml/2.6.2"
+  - "urdfdom_headers/1.0.4"

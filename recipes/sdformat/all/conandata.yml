@@ -5,3 +5,4 @@ sources:
 requirements:
   - "ignition-tools/1.0.0"
   - "ignition-math/6.4.0"
+  - "tinyxml2/8.0.0"
