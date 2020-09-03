@@ -1,0 +1,7 @@
+sources:
+  "9.2.0":
+    url: "https://github.com/osrf/sdformat/archive/sdformat9_9.2.0.zip"
+    sha256: "05c7197b4fea29caef9bf331e713edcb5fb05d00bc0e84fa0bd1a913e6f64c77"
+requirements:
+  - "ignition-tools/1.0.0"
+  - "ignition-math/6.4.0"

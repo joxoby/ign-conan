@@ -17,11 +17,6 @@ class IgnMathConan(ConanFile):
     # TODO: find a way of using an ign-make Conan package as a build_requirement
     # build_requires = "ignition-cmake/2.4.0"
 
-    version = os.getenv("CONAN_PACKAGE_VERSION", None)
-    major_version = version.split('.')[0]
-    if version is None:
-        raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
-
     @property
     def _source_subfolder(self):
         return "source_subfolder"

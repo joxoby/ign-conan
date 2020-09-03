@@ -14,11 +14,6 @@ class IgnCmakeConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake", "cmake_find_package_multi"
 
-    version = os.getenv("CONAN_PACKAGE_VERSION", None)
-    major_version = version.split('.')[0]
-    if version is None:
-        raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
-
     @property
     def _major(self):
         return self.major_version
