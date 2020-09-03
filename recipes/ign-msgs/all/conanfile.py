@@ -33,6 +33,7 @@ class IgnMsgsConan(ConanFile):
     def requirements(self):
         for req in self.conan_data["requirements"]:
             self.requires(req)
+        self.options["tinyxml2"].shared = self.options.shared
 
     def _configure_cmake(self):
         cmake = CMake(self)
