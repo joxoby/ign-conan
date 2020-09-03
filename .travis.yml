@@ -2,6 +2,9 @@ dist: bionic
 language: python
 python:
   - "3.7"
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install libprotoc-dev libprotobuf-dev protobuf-compiler # TODO: Use Conan protobuf
 install:
   - pip install pipenv
   - pipenv install --dev
