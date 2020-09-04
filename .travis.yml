@@ -9,4 +9,5 @@ install:
   - pip install pipenv
   - pipenv install --dev
 script:
+  - pipenv run conan profile update settings.compiler.libcxx=libstdc++11 default
   - pipenv run python create.py
