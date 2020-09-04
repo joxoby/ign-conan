@@ -12,6 +12,7 @@ class ConsoleBridge(ConanFile):
     topics = ("robotics", "simulation")
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake", "cmake_find_package_multi"
+    exports_sources = ['patches/*']
 
     @property
     def _source_subfolder(self):
@@ -21,14 +22,8 @@ class ConsoleBridge(ConanFile):
         tools.get(**self.conan_data["sources"][self.version])
         os.rename("console_bridge-1.0.1", self._source_subfolder)
 
-    def requirements(self):
-        pass
-        # for req in self.conan_data["requirements"]:
-        #     self.requires(req)
-
     def _configure_cmake(self):
         cmake = CMake(self)
-        cmake.definitions["BUILD_TESTING"] = False
         cmake.configure(source_folder=self._source_subfolder)
         return cmake
 
@@ -41,4 +36,4 @@ class ConsoleBridge(ConanFile):
         cmake.install()
 
     def package_info(self):
-        pass
+        self.cpp_info.libs = tools.collect_libs(self)

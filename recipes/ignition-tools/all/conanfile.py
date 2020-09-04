@@ -34,6 +34,7 @@ class IgnitionToolsConan(ConanFile):
         cmake.build()
 
     def package(self):
+        self.cpp_info.libs = tools.collect_libs(self)
         cmake = self._configure_cmake()
         cmake.install()
 
