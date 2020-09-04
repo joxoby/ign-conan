@@ -55,7 +55,7 @@ class IgnitionMsgsConan(ConanFile):
     def _install_ign_cmake(self):
         # Get and build ign-cmake. This is just a set of cmake macros used by all the ignition
         # packages.
-        self.run("git clone --depth=1 https://github.com/ignitionrobotics/ign-cmake.git --branch ignition-cmake2_2.4.0")
+        self.run("git clone --depth=1 https://github.com/joxoby/ign-cmake.git --branch add_config_search_for_tinyxml2")
         cmake = CMake(self)
         cmake.configure(source_folder="ign-cmake", build_folder="build_ign-cmake")
         cmake.build()
