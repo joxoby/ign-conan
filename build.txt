@@ -1,3 +1,4 @@
+tinyxml
 urdfdom_headers
 urdfdom
 ignition-math
