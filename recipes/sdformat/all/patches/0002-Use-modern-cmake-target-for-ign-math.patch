@@ -1,0 +1,34 @@
+From 667b50e34fcb31b3355da3841327a2fc827364b4 Mon Sep 17 00:00:00 2001
+From: Juan Oxoby <juan@vicarious.com>
+Date: Thu, 3 Sep 2020 23:02:47 -0700
+Subject: [PATCH 2/2] Use modern cmake target for ign-math
+
+Signed-off-by: Juan Oxoby <juan@vicarious.com>
+---
+ src/CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 9d179c79..5df95ae3 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -175,7 +175,7 @@ sdf_add_library(${sdf_target} ${sources})
+ target_compile_features(${sdf_target} PUBLIC cxx_std_17)
+ target_link_libraries(${sdf_target}
+   PUBLIC
+-    ${IGNITION-MATH_LIBRARIES}
++    ignition-math${IGN_MATH_VER}::ignition-math${IGN_MATH_VER}
+   PRIVATE
+     ${TinyXML2_LIBRARIES})
+ 
+@@ -185,7 +185,6 @@ endif()
+ 
+ target_include_directories(${sdf_target}
+   PUBLIC
+-    ${IGNITION-MATH_INCLUDE_DIRS}
+     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/..>
+ )
+-- 
+2.17.1
+

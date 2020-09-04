@@ -1,12 +1,14 @@
 sources:
-  "9.2.0":
-    url: "https://github.com/osrf/sdformat/archive/sdformat9_9.2.0.zip"
-    sha256: "05c7197b4fea29caef9bf331e713edcb5fb05d00bc0e84fa0bd1a913e6f64c77"
+  "10.0.0":
+    url: "https://github.com/osrf/sdformat/archive/sdformat10_10.0.0-pre2.zip"
+    sha256: "7294037f95fc012bd828cdbfda9551d0fa55148c9327b30c92d1c739c292797d"
 requirements:
   - "ignition-tools/1.0.0"
   - "ignition-math/6.4.0"
   - "tinyxml2/8.0.0"
 patches:
-  "9.2.0":
-    - patch_file: "patches/0001-cmake-fixes.patch"
+  "10.0.0":
+    - patch_file: "patches/0001-Add-include-CMakePackageConfigHelpers.patch"
+      base_path: "source_subfolder"
+    - patch_file: "patches/0002-Use-modern-cmake-target-for-ign-math.patch"
       base_path: "source_subfolder"

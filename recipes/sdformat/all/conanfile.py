@@ -20,7 +20,7 @@ class SDFormat(ConanFile):
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
-        os.rename("sdformat-sdformat9_9.2.0", self._source_subfolder)
+        os.rename("sdformat-sdformat10_10.0.0-pre2", self._source_subfolder)
 
     def requirements(self):
         for req in self.conan_data["requirements"]:
@@ -29,6 +29,7 @@ class SDFormat(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self)
         cmake.definitions["BUILD_TESTING"] = False
+        cmake.definitions["USE_INTERNAL_URDF"] = True
         cmake.configure(source_folder=self._source_subfolder)
         return cmake
 
