@@ -20,10 +20,14 @@ pipenv run python create.py
 
 - `grep -Rn "TODO:" recipes/`
 
+- [x] sdformat
+- [x] urdfdom
+- [x] urdf_headers
+- [x] console_bridge
 - [ ] ign-cmake
 - [x] ign-math
-- [ ] ign-tools
-- [ ] ign-msgs
+- [x] ign-tools
+- [x] ign-msgs
 - [ ] ign-transport
 - [ ] ign-rendering
 - [ ] ign-bazel
@@ -34,7 +38,3 @@ pipenv run python create.py
 - [ ] ign-launch
 - [ ] ign-physics
 - [ ] ign-gazebo
-- [ ] sdformat
-- [ ] urdfdom
-- [ ] urdf_headers
-- [ ] console_bridge
