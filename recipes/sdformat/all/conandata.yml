@@ -8,5 +8,5 @@ requirements:
   - "tinyxml2/8.0.0"
 patches:
   "9.2.0":
-    - patch_file: "patches/0001-Add-include-CMakePackageConfigHelpers.patch"
+    - patch_file: "patches/0001-cmake-fixes.patch"
       base_path: "source_subfolder"
