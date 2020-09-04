@@ -34,9 +34,11 @@ class IgnitionToolsConan(ConanFile):
         cmake.build()
 
     def package(self):
-        self.cpp_info.libs = tools.collect_libs(self)
         cmake = self._configure_cmake()
         cmake.install()
+
+    def package_info(self):
+        self.cpp_info.libs = tools.collect_libs(self)
 
     def _install_ign_cmake(self):
         # Get and build ign-cmake. This is just a set of cmake macros used by all the ignition
