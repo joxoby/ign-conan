@@ -12,6 +12,7 @@ class SDFormat(ConanFile):
     topics = ("ignition", "robotics", "simulation")
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake", "cmake_find_package_multi"
+    exports_sources = ['patches/*']
 
     @property
     def _source_subfolder(self):
@@ -32,6 +33,9 @@ class SDFormat(ConanFile):
         return cmake
 
     def build(self):
+        for patch in self.conan_data["patches"].get(self.version, []):
+            tools.patch(**patch)
+
         cmake = self._configure_cmake()
         cmake.build()
 
