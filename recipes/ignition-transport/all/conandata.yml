@@ -4,5 +4,6 @@ sources:
     sha256: "8f01b305a34f89a8fe59b40bce31bf7c91b58cd7319a26ccb5057e6328ccb313"
 requirements:
   - "zeromq/4.3.2"
+  - "cppzmq/4.6.0"
   - "sqlite3/3.32.3"
   - "ignition-msgs/5.3.0"
