@@ -1,24 +1,22 @@
-From 501587f2a012f626e903360fa050b7e84d62b114 Mon Sep 17 00:00:00 2001
+From e0e034051e86f57f40b26f270c77a2eb09ba055d Mon Sep 17 00:00:00 2001
 From: Juan Oxoby <juan@vicarious.com>
 Date: Thu, 3 Sep 2020 19:33:48 -0700
 Subject: [PATCH] Add #define TIXML_USE_STL
 
 ---
- urdf_parser/include/urdf_parser/urdf_parser.h | 1 +
- 1 file changed, 1 insertion(+)
+ urdf_parser/CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/urdf_parser/include/urdf_parser/urdf_parser.h b/urdf_parser/include/urdf_parser/urdf_parser.h
-index 247f207..7ab473d 100644
---- a/urdf_parser/include/urdf_parser/urdf_parser.h
-+++ b/urdf_parser/include/urdf_parser/urdf_parser.h
-@@ -41,6 +41,7 @@
- #include <string>
- #include <vector>
+diff --git a/urdf_parser/CMakeLists.txt b/urdf_parser/CMakeLists.txt
+index 3952064..e0fda82 100644
+--- a/urdf_parser/CMakeLists.txt
++++ b/urdf_parser/CMakeLists.txt
+@@ -1,3 +1,5 @@
++add_compile_definitions(TIXML_USE_STL)
++
+ include_directories(include)
  
-+#define TIXML_USE_STL
- #include <tinyxml.h>
- #include <urdf_model/model.h>
- #include <urdf_model/color.h>
+ add_library(urdfdom_world SHARED src/pose.cpp src/model.cpp src/link.cpp src/joint.cpp src/world.cpp)
 -- 
 2.17.1
 
