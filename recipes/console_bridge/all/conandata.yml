@@ -1,0 +1,4 @@
+sources:
+  "1.0.1":
+    url: "https://github.com/ros/console_bridge/archive/1.0.1.zip"
+    sha256: "1e511e91e85f7c469ca75fe77b16deaeb8bffecee1efb76aca74a0cb759e5a1d"

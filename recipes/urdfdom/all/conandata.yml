@@ -9,3 +9,4 @@ patches:
 requirements:
   - "tinyxml/2.6.3"
   - "urdfdom_headers/1.0.4"
+  - "console_bridge/1.0.1"

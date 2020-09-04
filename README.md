@@ -37,3 +37,4 @@ pipenv run python create.py
 - [ ] sdformat
 - [ ] urdfdom
 - [ ] urdf_headers
+- [ ] console_bridge
