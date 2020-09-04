@@ -3,7 +3,7 @@ import os
 from conans import CMake, ConanFile, tools
 
 
-class IgnToolsConan(ConanFile):
+class IgnitionToolsConan(ConanFile):
     name = "ignition-tools"
     license = "<Put the package license here>"
     author = "Juan Oxoby juan@vicarious.com"
@@ -14,11 +14,6 @@ class IgnToolsConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = {"shared": True}
     generators = "cmake", "cmake_find_package"
-
-    version = os.getenv("CONAN_PACKAGE_VERSION", None)
-    major_version = version.split('.')[0]
-    if version is None:
-        raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
 
     @property
     def _source_subfolder(self):

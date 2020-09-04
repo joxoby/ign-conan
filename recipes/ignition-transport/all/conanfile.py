@@ -3,7 +3,7 @@ import os
 from conans import CMake, ConanFile, tools
 
 
-class IgnTransportConan(ConanFile):
+class IgnitionTransportConan(ConanFile):
     name = "ignition-transport"
     license = "Apache-2.0"
     author = "Juan Oxoby me@jmoxo.by"
@@ -15,11 +15,6 @@ class IgnTransportConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = {"shared": True, "zeromq:shared": True}
     generators = "cmake", "cmake_find_package_multi"
-
-    version = os.getenv("CONAN_PACKAGE_VERSION", None)
-    major_version = version.split('.')[0]
-    if version is None:
-        raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
 
     @property
     def _major(self):

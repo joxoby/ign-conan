@@ -22,9 +22,8 @@ for package in packages:
     # loop through all the versions to build
     versions = config["versions"]
     for version in versions:
-        os.environ["CONAN_PACKAGE_VERSION"] = version
         folder = versions[version]["folder"]
         path_to_folder = str(root_dir / package / folder)
-        ret = subprocess.call(["conan", "create", path_to_folder])
+        ret = subprocess.call(["conan", "create", path_to_folder, f"{package}/{version}@"])
         if ret is not 0:
             exit(1)

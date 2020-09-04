@@ -1,8 +1,8 @@
 urdfdom_headers
 urdfdom
-ign-math
-ign-tools
+ignition-math
+ignition-tools
 sdformat
-ign-msgs
-ign-transport
+ignition-msgs
+ignition-transport
 

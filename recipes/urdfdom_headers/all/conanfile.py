@@ -13,12 +13,6 @@ class URDFDomHeaders(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake", "cmake_find_package_multi"
 
-    def set_version(self):
-        version = os.getenv("CONAN_PACKAGE_VERSION", None)
-        if version is None:
-            raise KeyError("Please specify the version of the package by setting the env variable CONAN_PACKAGE_VERSION")
-        self.version = version
-
     @property
     def _source_subfolder(self):
         return "source_subfolder"

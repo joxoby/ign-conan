@@ -4,7 +4,7 @@ import os
 from conans import CMake, ConanFile, tools
 
 
-class IgnCmakeConan(ConanFile):
+class IgnitionCmakeConan(ConanFile):
     name = "ignition-cmake"
     license = "Apache-2.0"
     author = "Juan Oxoby me@jmoxo.by"
