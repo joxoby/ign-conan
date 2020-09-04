@@ -1,0 +1,26 @@
+From f88ddd5b2385dd95c75902145b1371fd2b5966ab Mon Sep 17 00:00:00 2001
+From: Juan Oxoby <juan@vicarious.com>
+Date: Fri, 4 Sep 2020 11:29:29 -0700
+Subject: [PATCH] Add tinyxml2 to Config names
+
+Signed-off-by: Juan Oxoby <juan@vicarious.com>
+---
+ cmake/Modules/FindTinyXML2.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/Modules/FindTinyXML2.cmake b/cmake/Modules/FindTinyXML2.cmake
+index 6976dee0..fd3571e9 100644
+--- a/cmake/Modules/FindTinyXML2.cmake
++++ b/cmake/Modules/FindTinyXML2.cmake
+@@ -10,7 +10,7 @@
+ # TinyXML2_LIBRARIES
+ 
+ # try to find the CMake config file for TinyXML2 first
+-find_package(TinyXML2 CONFIG QUIET)
++find_package(TinyXML2 CONFIG NAMES tinyxml2 QUIET)
+ if(TinyXML2_FOUND)
+   message(STATUS "Found TinyXML2 via Config file: ${TinyXML2_DIR}")
+   if(NOT TINYXML2_LIBRARY)
+-- 
+2.17.1
+
