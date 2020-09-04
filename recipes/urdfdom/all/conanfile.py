@@ -11,7 +11,7 @@ class URDFDom(ConanFile):
     description = "URDF parser"
     topics = ("robotics", "simulation")
     settings = "os", "compiler", "build_type", "arch"
-    generators = "cmake", "cmake_find_package"
+    generators = "cmake", "cmake_find_package", "cmake_find_package_multi"
     exports_sources = ['patches/*']
 
     @property
