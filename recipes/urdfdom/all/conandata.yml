@@ -9,6 +9,6 @@ patches:
     - patch_file: "patches/0001-Add-define-TIXML_USE_STL.patch"
       base_path: "source_subfolder"
 requirements:
-  - "tinyxml/2.6.3"
+  - "tinyxml/2.6.2"
   - "urdfdom_headers/1.0.4"
   - "console_bridge/1.0.1"
